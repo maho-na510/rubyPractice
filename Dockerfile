@@ -6,5 +6,3 @@ WORKDIR /rubyPractice
 COPY Gemfile /rubyPractice/Gemfile
 COPY Gemfile.lock /rubyPractice/Gemfile.lock
 RUN bundle install
-
-CMD ["rails", "server", "-b", "0.0.0.0"]

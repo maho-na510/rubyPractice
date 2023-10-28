@@ -4,16 +4,19 @@ services:
     container_name: rubyPractice_db
     image: postgres:12.4-alpine
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - ./db-data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: pass
   web:
     container_name: rubyPractice_web
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    tty: true
     volumes:
       - .:/rubyPractice
     ports:
       - "3000:3000"
     depends_on:
       - db
+  volumes:
+    db-data:
+      drover: local
