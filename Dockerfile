@@ -1,8 +1,17 @@
 FROM ruby:3.2.2
-RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
-&& apt-get install -y nodejs
-RUN npm install --global yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    && apt-get update -qq \
+    && apt-get install -y nodejs yarn \
+    && mkdir /animal-system
+# RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
+# && apt-get install -y nodejs
+ARG RUBYGEMS_VERSION=3.3.20
+# RUN npm install --global yarn
 WORKDIR /rubyPractice
 COPY Gemfile /rubyPractice/Gemfile
 COPY Gemfile.lock /rubyPractice/Gemfile.lock
 RUN bundle install
+COPY . /rubyPractice
+
+EXPOSE 3000
