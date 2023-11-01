@@ -13,7 +13,4 @@ COPY Gemfile.lock /rubyPractice/Gemfile.lock
 RUN bundle install
 COPY . /rubyPractice
 
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
