@@ -1,5 +1,22 @@
 # rubyPractice
 
+## railsを起動し、コンテナに入る手順
+
+作業ディレクトリに必要なファイルを準備
+-Dockerfile
+-docker-compose.yml
+-Gemfile
+-gemfile.lock
+
+コンテナを立ち上げてコンテナ内に入る
+
+docker compose up
+docker exec -ti rubyPractice_web /bin/bash
+
+新しいrailsアプリケーションを作成する
+
+rails new [newapp_name]
+
 ## DB・テーブル確認手法
 
 ## コンテナ内に入ってmysqlにログインする場合
