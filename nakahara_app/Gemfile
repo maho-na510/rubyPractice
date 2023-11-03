@@ -5,8 +5,8 @@ gem 'rails', '~> 7.0.0'
 
 #app server
 gem 'puma', '~> 6.1'
-#database for active record
-gem 'pg', '~> 1.4' 
+#mysql database
+gem 'mysql2', '~> 0.5.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.16', require: false
 # webpacker no longer needed (Rails7)?
@@ -17,6 +17,10 @@ gem 'turbolinks', '~> 5.2.0'
 gem 'jbuilder', '~> 2.11.5'
 #scss for stylesheets
 gem 'sass-rails', '>= 6'
+#
+
+#pagenation
+gem "kaminari", "~> 1.2"
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -27,6 +31,7 @@ gem 'sass-rails', '>= 6'
 # gem 'image_processing', '~> 1.2'
 
 group :development, :test do
+    gem "rubocop", "~> 1.48", require: false
     gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   end
   
@@ -49,10 +54,3 @@ group :development, :test do
   
   # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-#search
-gem 'ransack'
-#reveu?
-gem 'rubocop', require: false
-#http
-gem 'faraday'
