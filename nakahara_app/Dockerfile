@@ -8,9 +8,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 ARG RUBYGEMS_VERSION=3.3.20
 RUN mkdir /rubyPractice
 WORKDIR /rubyPractice
-COPY Gemfile /rubyPractice/Gemfile
-COPY Gemfile.lock /rubyPractice/Gemfile.lock
-RUN bundle install
 COPY . /rubyPractice
+RUN bundle install
 
 EXPOSE 3000
