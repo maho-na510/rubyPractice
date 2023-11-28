@@ -11,4 +11,12 @@ WORKDIR /rubyPractice
 COPY . /rubyPractice
 RUN bundle install
 
+# コンテナ起動時に実行させるスクリプト
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+
+# # ARM アーキテクチャ向けの gem インストール
+# RUN if [ "$(arch)" = "aarch64" ]; then bundle install; fi
+
+ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
