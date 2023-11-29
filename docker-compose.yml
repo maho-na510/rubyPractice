@@ -18,7 +18,7 @@ services:
       
   web:
     container_name: rubyPractice_web
-    build: nakahara_app
+    build: ./nakahara_app
     volumes:
       - .:/rubyPractice
     ports:
