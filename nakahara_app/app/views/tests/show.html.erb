@@ -1,0 +1,7 @@
+<!-- app/views/tests/show.html.erb -->
+
+<h1>Tests#show</h1>
+<p>Name: <%= @test.name %></p>
+<p>Description: <%= @test.description %></p>
+<%= link_to 'Edit', edit_test_path(@test) %> |
+<%= link_to 'Back', tests_path %>
