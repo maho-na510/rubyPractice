@@ -36,10 +36,10 @@ mysql -u root -p
 
 ### phpMyadminを使って表示する場合
 
-以下の手順で表示する
+以下の手順で表示する。以下のURLにアクセス
 
 ```
-http://localhost:9999/にアクセス
+http://localhost:9999
 ```
 
 <img width="766" alt="スクリーンショット 2023-11-02 21 05 18" src="https://github.com/maho-na510/rubyPractice/assets/34295276/500ac6a1-952f-4881-8d36-6beb2296d14c">
