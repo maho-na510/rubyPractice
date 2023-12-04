@@ -9,7 +9,11 @@ Bundler.require(*Rails.groups)
 module NakaharaApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    # config.load_defaults 7.0
+    config.load_defaults Rails::VERSION::STRING.to_f
+    config.generators.system_tests = nil
+    config.public_file_server.enabled = false
+    # config.webpacker.check_yarn_integrity = false
 
     # Configuration for the application, engines, and railties goes here.
     #

@@ -1,9 +1,0 @@
-<!-- app/views/tests/index.html.erb -->
-
-<h1>Tests#index</h1>
-<ul>
-  <% @tests.each do |test| %>
-    <li><%= link_to test.name, test_path(test) %></li>
-  <% end %>
-</ul>
-<%= link_to 'New Test', new_test_path %>

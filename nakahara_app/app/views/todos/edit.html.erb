@@ -1,0 +1,10 @@
+<h1>edit</h1>
+
+<%= form_with model: @todo, html: {class: "form-container"} do |form| %>
+<div class="form-input">
+  <%= form.label :title %> <%= form.text_field :title %>
+</div>
+<div class="button-container">
+  <%= form.submit "update" , class: "link-button" %>
+</div>
+<% end %>
