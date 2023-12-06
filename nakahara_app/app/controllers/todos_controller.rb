@@ -2,9 +2,10 @@ class TodosController < ApplicationController
   before_action :set_todo, only: [:edit, :update, :destroy]
 
   def index
-      @todos = Todo.all
+      @todos = Todo.order(updated_at: :desc) 
+      render :index
   end
-
+  
   def new
       @todo = Todo.new
   end

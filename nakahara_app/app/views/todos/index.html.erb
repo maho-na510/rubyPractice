@@ -1,20 +1,33 @@
-<h1>TODO_app</h1>
+<div class="container">
+  <h1>Todo List</h1>
 
-<div class="button-container">
-  <%= link_to "add_task", new_todo_path, class: "link-button" %>
+  <%= link_to "add_task", new_todo_path, class:"link-button"%>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Check</th>
+        <th>Task</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @todos.each do |todo| %>
+        <tr>
+          <td style="text-align: center;">
+            <%= form_tag(todo_path(todo), method: :patch) do %>
+            <%= check_box_tag "todo[is_completed]", "1", todo.is_completed, id: "todo_completed_#{todo.id}" %>
+            <%= label_tag "todo_completed_#{todo.id}", "" %>
+            <% end%>
+          </td>
+          <td>
+            <%= todo.title %>
+          </td>
+          <td>
+            <%= link_to "edit", edit_todo_path(todo), class: "link-edit-button" %>
+            <%= link_to "", todo_path(todo), class: "link-delete-button" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
-<ul>
-  <% @todos.each do |todo| %>
-  <li>
-    <h2><%= todo.title %></h2>
-    <span>
-      <small><%= todo.created_at %></small>
-    </span>
-    <div class="edit-delete-wrapper">
-      <%= link_to "edit", edit_todo_path(todo), class: "link-button" %> 
-      <%= button_to "delete", todo_path(todo), method: :delete, class: "link-delete-button" %>
-    </div>
-  </li>
-  <% end %>
-</ul>

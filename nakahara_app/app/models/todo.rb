@@ -1,4 +1,3 @@
 class Todo < ApplicationRecord
-    def title
-    end
+    validates :title, presence: true
 end
